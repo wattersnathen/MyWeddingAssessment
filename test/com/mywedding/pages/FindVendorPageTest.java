@@ -39,5 +39,32 @@ public class FindVendorPageTest extends BaseTestCase {
 		WebElement ideasSearch = driver.findElement(By.id("ideas-search"));
 		Assert.assertFalse("ideas-search section should not be present on the Find Vendors Page", 
 				ideasSearch.isDisplayed());			
+	}	
+	
+	/**
+	 * Make sure the ideas search section is not present (using the same function as above) 
+	 * and verify that the find vendor search dropdown category is defaulted to venues. 
+	 * <a href="http://prntscr.com/83e4tr"> View resource</a>.
+	 */
+	@Test
+	public void ideasSearchIsNotPresentAndFindVendorDropdownDefaultsToVenues() {
+		/* Given:
+		 * 		I am on the find vendor home page
+		 */
+		HomePage homePage = new HomePage(driver).navigateToHomePage();
+		FindVendorPage vendorPage = homePage.navigateToFindVendorPage();
+		Assert.assertEquals(FindVendorPage.FINDVENDORPAGE_URL, vendorPage.getURL());
+		
+		/*
+		 * 		And the ideas search section is not present on the find vendor home page
+		 */
+		WebElement ideasSearch = driver.findElement(By.id("ideas-search"));
+		Assert.assertFalse("ideas-search section should not be present on the Find Vendors Page",
+				ideasSearch.isDisplayed());
+		
+		/*
+		 * 		And the find vendor home page category contains the correct default value "venues"
+		 */
+		Assert.assertEquals("venues", vendorPage.getDropdownButtonForCategoriesText());
 	}
 }
