@@ -12,7 +12,7 @@ import org.openqa.selenium.support.PageFactory;
  * @author Nathen
  *
  */
-public class HomePage {
+public class HomePage extends Page {
 	
 	private WebDriver driver;
 	
@@ -28,6 +28,7 @@ public class HomePage {
 	 * @param driver
 	 */
 	public HomePage(WebDriver driver) {
+		super(driver);
 		this.driver = driver;
 		PageFactory.initElements(this.driver, HomePage.this);
 	}
