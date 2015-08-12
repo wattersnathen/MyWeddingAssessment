@@ -22,6 +22,9 @@ public class HomePage extends Page {
 	@FindBy(id="tab-find-vendor")
 	private WebElement vendorTab;
 	
+	@FindBy(id="ideas-search")
+	private WebElement ideasSearch;
+	
 	/**
 	 * Constructor for HomePage. Has a dependency for a WebDriver instance, and will 
 	 * setup WebElements using Selenium's PageFactory.
@@ -46,5 +49,14 @@ public class HomePage extends Page {
 	public FindVendorPage navigateToFindVendorPage() {
 		vendorTab.click();
 		return new FindVendorPage(this.driver);
+	}
+	
+	/**
+	 * Check if the ideas search section is present on the page
+	 * 
+	 * @return whether or not ideas search is present
+	 */
+	public boolean isIdeasSearchElementPresent() {
+		return ideasSearch.isDisplayed();
 	}
 }
