@@ -15,8 +15,7 @@ public class FindVendorPageTest extends BaseTestCase {
 	 */
 	@Test
 	public void userCanNavigateToFindVendorPageFromHomePageTest() {
-		HomePage homePage = new HomePage(driver).navigateToHomePage();
-		FindVendorPage vendorPage = homePage.navigateToFindVendorPage();
+		FindVendorPage vendorPage = getToFindVendorPage();
 		Assert.assertEquals(FindVendorPage.FINDVENDORPAGE_URL, vendorPage.getURL());
 	}
 	
@@ -29,8 +28,7 @@ public class FindVendorPageTest extends BaseTestCase {
 		/* Given:
 		 * 		I am on the find vendor home page
 		 */
-		HomePage homePage = new HomePage(driver).navigateToHomePage();
-		FindVendorPage vendorPage = homePage.navigateToFindVendorPage();
+		FindVendorPage vendorPage = getToFindVendorPage();
 		Assert.assertEquals(FindVendorPage.FINDVENDORPAGE_URL, vendorPage.getURL());
 		
 		/* Then:
@@ -51,8 +49,7 @@ public class FindVendorPageTest extends BaseTestCase {
 		/* Given:
 		 * 		I am on the find vendor home page
 		 */
-		HomePage homePage = new HomePage(driver).navigateToHomePage();
-		FindVendorPage vendorPage = homePage.navigateToFindVendorPage();
+		FindVendorPage vendorPage = getToFindVendorPage();
 		Assert.assertEquals(FindVendorPage.FINDVENDORPAGE_URL, vendorPage.getURL());
 		
 		/*
@@ -66,5 +63,18 @@ public class FindVendorPageTest extends BaseTestCase {
 		 * 		And the find vendor home page category contains the correct default value "venues"
 		 */
 		Assert.assertEquals("venues", vendorPage.getDropdownButtonForCategoriesText());
+	}
+	
+	// ----- HELPER METHODS -----
+	
+	/**
+	 * Helper method for constructing and navigating the FindVendorPage
+	 * 
+	 * @return instance of FindVendorPage
+	 */
+	private FindVendorPage getToFindVendorPage() {
+		HomePage homePage = new HomePage(driver).navigateToHomePage();
+		FindVendorPage vendorPage = homePage.navigateToFindVendorPage();
+		return vendorPage;
 	}
 }
