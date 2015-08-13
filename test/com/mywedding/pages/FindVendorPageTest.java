@@ -94,6 +94,17 @@ public class FindVendorPageTest extends BaseTestCase {
 		 */
 		vendorPage.moveToCheckListSection();
 		
+		/*
+		 * Then:
+		 * 		the find vendor home page pay it forward checklist items are present
+		 * 		|leave rating and recommendations about vendors you used|
+		 * 		|provide useful feedback to couples planning their wedding|
+		 */
+		
+		String[] expectedBulletItemText = {
+				"leave rating and recommendations about vendors you used",
+				"provide useful feedback to couples planning their wedding"
+		};
 		
 		List<WebElement> checkListItems = vendorPage.getHomePageChecklistItems();
 	// ----- HELPER METHODS -----
