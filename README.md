@@ -10,6 +10,33 @@ This project was created as part of a technical assessment for a Test Automation
 * that certain elements were not present
 * that certain elements contained certain information/data
 
+### Steps to install and reproduce tests (from Eclipse IDE)
+
+* Make sure Firefox is installed
+  - tested with version 27
+* Download Selenium WebDriver (Java bindings)
+* Clone repo to local machine
+  - cd <your eclipse workspace>
+  - git clone https://github.com/wattersnathen/MyWeddingAssessment.git
+  - 
+* From Eclipse ->
+  - File -> Import...
+  - Projects from Git
+  - Existing local repository
+  - navigate to the repo you cloned earlier
+  - Import using the New Project Wizard
+  - Chose Java Project
+  - Fill in the Project name field with "MyWeddingAssessment"
+  - Click next
+  - Click on the Libraries tab, then click on "Add External JARs..."
+  - Navigate to Selenium WebDriver downloads and chose
+    * all .jar files in /lib/
+    * selenium-java-*.jar file where * is the version number you downloaded
+  - Click finish
+  - Let Eclipse do the initial build
+  - Go to the FindVendorsPage, right-click the class name:
+    * chose Run As -> JUnit test
+
 ### Constraints and Conditions
 
 * Used Firefox web browser only to expedite the development process
