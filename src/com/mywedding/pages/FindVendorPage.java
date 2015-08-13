@@ -1,7 +1,9 @@
 package com.mywedding.pages;
 
+import java.util.ArrayList;
 import java.util.List;
 
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
@@ -60,5 +62,23 @@ public class FindVendorPage extends Page {
 	public List<WebElement> getHomePageChecklistItems() {
 		return checkListItems;
 	}
+	
+	/**
+	 * Find the bullet item text for a given checklist item
+	 * 
+	 * @param checklistItem homepage checklist item to search
+	 * @return List of all bullet text found
+	 */
+	public List<String> getChecklistItemBulletTextForItem(WebElement checklistItem) {
+		List<String> bulletText = new ArrayList<>();
+		
+		List<WebElement> descriptiveTags = checklistItem.findElements(By.tagName("dd"));
+		for (WebElement ddTag : descriptiveTags) {
+			bulletText.add(ddTag.getText());
+		}
+		
+		return bulletText;
+	}
+	
 	
 }
