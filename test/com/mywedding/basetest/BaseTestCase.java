@@ -9,6 +9,11 @@ import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.firefox.FirefoxProfile;
 import org.openqa.selenium.firefox.internal.ProfilesIni;
 
+/**
+ * Base class for all test classes
+ * @author Nathen
+ *
+ */
 public class BaseTestCase {
 	
 	protected WebDriver driver;

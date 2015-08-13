@@ -33,15 +33,11 @@ public class FindVendorPageTest extends BaseTestCase {
 	 */
 	@Test
 	public void ideasSearchSectionIsNotPresentOnTheFindVendorsPage() {
-		/* Given:
-		 * 		I am on the find vendor home page
-		 */
+		// Given: I am on the find vendor home page 
 		FindVendorPage vendorPage = getToFindVendorPage();
 		Assert.assertEquals(FindVendorPage.FINDVENDORPAGE_URL, vendorPage.getURL());
 		
-		/* Then:
-		 * 		the ideas search section is not present on the find vendor home page
-		 */
+		// Then: the ideas search section is not present on the find vendor home page
 		WebElement ideasSearch = driver.findElement(By.id("ideas-search"));
 		Assert.assertFalse("ideas-search section should not be present on the Find Vendors Page", 
 				ideasSearch.isDisplayed());			
@@ -54,22 +50,16 @@ public class FindVendorPageTest extends BaseTestCase {
 	 */
 	@Test
 	public void ideasSearchIsNotPresentAndFindVendorDropdownDefaultsToVenues() {
-		/* Given:
-		 * 		I am on the find vendor home page
-		 */
+		// Given:	I am on the find vendor home page
 		FindVendorPage vendorPage = getToFindVendorPage();
 		Assert.assertEquals(FindVendorPage.FINDVENDORPAGE_URL, vendorPage.getURL());
 		
-		/*
-		 * 		And the ideas search section is not present on the find vendor home page
-		 */
+		//	 		And the ideas search section is not present on the find vendor home page
 		WebElement ideasSearch = driver.findElement(By.id("ideas-search"));
 		Assert.assertFalse("ideas-search section should not be present on the Find Vendors Page",
 				ideasSearch.isDisplayed());
 		
-		/*
-		 * 		And the find vendor home page category contains the correct default value "venues"
-		 */
+		//			And the find vendor home page category contains the correct default value "venues"
 		Assert.assertEquals("venues", vendorPage.getDropdownButtonForCategoriesText());
 	}
 	
@@ -79,47 +69,34 @@ public class FindVendorPageTest extends BaseTestCase {
 	 */
 	@Test
 	public void payItForwardSectionContainsRatingAndFeedbackBullets() {
-		/* Given:
-		 * 		I am on the find vendor home page
-		 */
+		// Given: 	I am on the find vendor home page
 		FindVendorPage vendorPage = getToFindVendorPage();
 		Assert.assertEquals(FindVendorPage.FINDVENDORPAGE_URL, vendorPage.getURL());
 		
-		/*
-		 *		And the find vendor home page checklist section is present 
-		 */
+		//			And the find vendor home page checklist section is present
 		Assert.assertTrue("Expected checklist section to be present", vendorPage.checkListSectionIsPresent());
 		
-		/*
-		 * When:
-		 * 		I move to the find vendor home page checklist section
-		 */
+		// When:	I move to the find vendor home page checklist section
 		vendorPage.moveToCheckListSection();
 		
-		/*
-		 * Then:
-		 * 		the find vendor home page pay it forward checklist items are present
-		 * 		|leave rating and recommendations about vendors you used|
-		 * 		|provide useful feedback to couples planning their wedding|
-		 */
-		
+		// Then: 	the find vendor home page pay it forward checklist items are present		
 		String[] expectedBulletItemText = {
 				"leave rating and recommendations about vendors you used",
 				"provide useful feedback to couples planning their wedding"
 		};
 		
+		// first get the items in the homepage checklist section
 		List<WebElement> checkListItems = vendorPage.getHomePageChecklistItems();
+		
+		// next, look through the checklist items and find the 'pay it forward' item
 		for (WebElement item : checkListItems) {
-			
 			// check for the Pay It Forward list item
 			if (item.getAttribute("innerHTML").contains("pay it")) {
-				
+				// this 'item' should contain the same text as that seen in the expectedBulletItemText array above
 				Assert.assertArrayEquals("Expected pay it forward list item to contain " + expectedBulletItemText, 
 						expectedBulletItemText,
 						vendorPage.getChecklistItemBulletTextForItem(item).toArray());
-				
 			}
-			
 		}
 	}
 	

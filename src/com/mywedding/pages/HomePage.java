@@ -36,6 +36,10 @@ public class HomePage extends Page {
 		PageFactory.initElements(this.driver, HomePage.this);
 	}
 	
+	/**
+	 * Go to the mywedding.com website
+	 * @return
+	 */
 	public HomePage navigateToHomePage() {
 		this.driver.navigate().to(HOMEPAGE_URL);
 		return this;

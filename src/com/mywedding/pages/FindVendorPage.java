@@ -31,6 +31,10 @@ public class FindVendorPage extends Page {
 		PageFactory.initElements(this.driver, FindVendorPage.this);
 	}
 	
+	/**
+	 * Get the current text of the categories dropdown button
+	 * @return 
+	 */
 	public String getDropdownButtonForCategoriesText() {
 		return dropdownButton.getText();
 	}
