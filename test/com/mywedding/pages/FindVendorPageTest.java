@@ -1,5 +1,7 @@
 package com.mywedding.pages;
 
+import java.util.List;
+
 import org.junit.Assert;
 import org.junit.Test;
 import org.openqa.selenium.By;
@@ -107,6 +109,20 @@ public class FindVendorPageTest extends BaseTestCase {
 		};
 		
 		List<WebElement> checkListItems = vendorPage.getHomePageChecklistItems();
+		for (WebElement item : checkListItems) {
+			
+			// check for the Pay It Forward list item
+			if (item.getAttribute("innerHTML").contains("pay it")) {
+				
+				Assert.assertArrayEquals("Expected pay it forward list item to contain " + expectedBulletItemText, 
+						expectedBulletItemText,
+						vendorPage.getChecklistItemBulletTextForItem(item).toArray());
+				
+			}
+			
+		}
+	}
+	
 	// ----- HELPER METHODS -----
 	
 	/**
