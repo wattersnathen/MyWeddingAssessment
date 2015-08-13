@@ -65,6 +65,17 @@ public class FindVendorPageTest extends BaseTestCase {
 		Assert.assertEquals("venues", vendorPage.getDropdownButtonForCategoriesText());
 	}
 	
+	/**
+	 * Verify that the "Pay it Forward" section at the bottom has the desired bullet points 
+	 * <a href="http://prntscr.com/83e5l0"> View resource</a>
+	 */
+	@Test
+	public void payItForwardSectionContainsRatingAndFeedbackBullets() {
+		/* Given:
+		 * 		I am on the find vendor home page
+		 */
+		FindVendorPage vendorPage = getToFindVendorPage();
+		Assert.assertEquals(FindVendorPage.FINDVENDORPAGE_URL, vendorPage.getURL());
 		
 		/*
 		 *		And the find vendor home page checklist section is present 
