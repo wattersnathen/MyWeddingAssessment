@@ -19,8 +19,4 @@ public abstract class Page {
 	public String getURL() {
 		return driver.getCurrentUrl();
 	}
-	
-	public String getTitle() {
-		return driver.getTitle();
-	}
 }
