@@ -14,6 +14,8 @@ public class FindVendorPage extends Page {
 	@FindBy(css="#category button")
 	private WebElement dropdownButton;
 	
+	@FindBy(css="#tab-pane-find-vendor > div.homepage-checklist > div > h6")
+	private WebElement homePageChecklist;
 	public FindVendorPage(WebDriver driver) {
 		super(driver);
 		this.driver = driver;
@@ -23,4 +25,14 @@ public class FindVendorPage extends Page {
 	public String getDropdownButtonForCategoriesText() {
 		return dropdownButton.getText();
 	}
+	
+	/**
+	 * Method for checking if the homepage-checklist section is present. If the heading is showing then
+	 * we can say the section is visible on the page.
+	 * @return
+	 */
+	public boolean checkListSectionIsPresent() {	
+		return homePageChecklist.isDisplayed();
+	}
+	
 }

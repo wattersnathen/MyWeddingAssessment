@@ -65,6 +65,12 @@ public class FindVendorPageTest extends BaseTestCase {
 		Assert.assertEquals("venues", vendorPage.getDropdownButtonForCategoriesText());
 	}
 	
+		
+		/*
+		 *		And the find vendor home page checklist section is present 
+		 */
+		Assert.assertTrue("Expected checklist section to be present", vendorPage.checkListSectionIsPresent());
+		
 	// ----- HELPER METHODS -----
 	
 	/**
