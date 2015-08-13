@@ -16,9 +16,8 @@ This project was created as part of a technical assessment for a Test Automation
   - tested with version 27
 * Download Selenium WebDriver (Java bindings)
 * Clone repo to local machine
-  - cd <your eclipse workspace>
-  - git clone https://github.com/wattersnathen/MyWeddingAssessment.git
-  - 
+  - change directory to your Eclipse workspace
+  - git clone https:<span></span>//github.com/wattersnathen/MyWeddingAssessment.git
 * From Eclipse ->
   - File -> Import...
   - Projects from Git
