@@ -2,6 +2,7 @@ package com.mywedding.pages;
 
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
@@ -33,6 +34,16 @@ public class FindVendorPage extends Page {
 	 */
 	public boolean checkListSectionIsPresent() {	
 		return homePageChecklist.isDisplayed();
+	}
+	
+	/**
+	 * Create an Actions builder to move to the homepage checklist section
+	 */
+	public void moveToCheckListSection() {
+		Actions builder = new Actions(driver);
+		builder.moveToElement(homePageChecklist)
+			   .build()
+			   .perform();
 	}
 	
 }

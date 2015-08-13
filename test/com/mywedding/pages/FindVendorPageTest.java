@@ -71,6 +71,12 @@ public class FindVendorPageTest extends BaseTestCase {
 		 */
 		Assert.assertTrue("Expected checklist section to be present", vendorPage.checkListSectionIsPresent());
 		
+		/*
+		 * When:
+		 * 		I move to the find vendor home page checklist section
+		 */
+		vendorPage.moveToCheckListSection();
+		
 	// ----- HELPER METHODS -----
 	
 	/**
