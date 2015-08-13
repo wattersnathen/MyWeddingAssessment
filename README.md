@@ -42,4 +42,4 @@ This project was created as part of a technical assessment for a Test Automation
 * Setup a Firefox profile to enable user shared location for mywedding.com
   - View [this post](http://stackoverflow.com/a/28390721) for setting up a Firefox profile on your local computer
   - The current test structure assumes a profile named "TestAutomation". You can change the anticipated profile name [on this line](https://github.com/wattersnathen/MyWeddingAssessment/blob/master/test/com/mywedding/basetest/BaseTestCase.java#L22)
-  
+* An Implicit Timeout of 10 seconds was sufficient on my local development machine to be able to locate all the elements necessary for the scenarios (i.e. no explicit waits were needed)
