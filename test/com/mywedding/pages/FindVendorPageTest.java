@@ -7,6 +7,12 @@ import org.openqa.selenium.WebElement;
 
 import com.mywedding.basetest.BaseTestCase;
 
+/**
+ * Test suite for tests related to the FindVendorPage
+ * 
+ * @author Nathen
+ *
+ */
 public class FindVendorPageTest extends BaseTestCase {
 
 	/**
