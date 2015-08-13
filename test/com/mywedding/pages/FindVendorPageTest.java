@@ -1,5 +1,7 @@
 package com.mywedding.pages;
 
+import java.util.List;
+
 import org.junit.Assert;
 import org.junit.Test;
 import org.openqa.selenium.By;
@@ -7,6 +9,12 @@ import org.openqa.selenium.WebElement;
 
 import com.mywedding.basetest.BaseTestCase;
 
+/**
+ * Test suite for tests related to the FindVendorPage
+ * 
+ * @author Nathen
+ *
+ */
 public class FindVendorPageTest extends BaseTestCase {
 
 	/**
@@ -63,6 +71,56 @@ public class FindVendorPageTest extends BaseTestCase {
 		 * 		And the find vendor home page category contains the correct default value "venues"
 		 */
 		Assert.assertEquals("venues", vendorPage.getDropdownButtonForCategoriesText());
+	}
+	
+	/**
+	 * Verify that the "Pay it Forward" section at the bottom has the desired bullet points 
+	 * <a href="http://prntscr.com/83e5l0"> View resource</a>
+	 */
+	@Test
+	public void payItForwardSectionContainsRatingAndFeedbackBullets() {
+		/* Given:
+		 * 		I am on the find vendor home page
+		 */
+		FindVendorPage vendorPage = getToFindVendorPage();
+		Assert.assertEquals(FindVendorPage.FINDVENDORPAGE_URL, vendorPage.getURL());
+		
+		/*
+		 *		And the find vendor home page checklist section is present 
+		 */
+		Assert.assertTrue("Expected checklist section to be present", vendorPage.checkListSectionIsPresent());
+		
+		/*
+		 * When:
+		 * 		I move to the find vendor home page checklist section
+		 */
+		vendorPage.moveToCheckListSection();
+		
+		/*
+		 * Then:
+		 * 		the find vendor home page pay it forward checklist items are present
+		 * 		|leave rating and recommendations about vendors you used|
+		 * 		|provide useful feedback to couples planning their wedding|
+		 */
+		
+		String[] expectedBulletItemText = {
+				"leave rating and recommendations about vendors you used",
+				"provide useful feedback to couples planning their wedding"
+		};
+		
+		List<WebElement> checkListItems = vendorPage.getHomePageChecklistItems();
+		for (WebElement item : checkListItems) {
+			
+			// check for the Pay It Forward list item
+			if (item.getAttribute("innerHTML").contains("pay it")) {
+				
+				Assert.assertArrayEquals("Expected pay it forward list item to contain " + expectedBulletItemText, 
+						expectedBulletItemText,
+						vendorPage.getChecklistItemBulletTextForItem(item).toArray());
+				
+			}
+			
+		}
 	}
 	
 	// ----- HELPER METHODS -----
