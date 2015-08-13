@@ -1,5 +1,7 @@
 package com.mywedding.pages;
 
+import java.util.List;
+
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
@@ -17,6 +19,10 @@ public class FindVendorPage extends Page {
 	
 	@FindBy(css="#tab-pane-find-vendor > div.homepage-checklist > div > h6")
 	private WebElement homePageChecklist;
+	
+	@FindBy(css="#tab-pane-find-vendor > div.homepage-checklist > div > div.row > div.col-sm-4")
+	private List<WebElement> checkListItems;
+	
 	public FindVendorPage(WebDriver driver) {
 		super(driver);
 		this.driver = driver;
@@ -44,6 +50,15 @@ public class FindVendorPage extends Page {
 		builder.moveToElement(homePageChecklist)
 			   .build()
 			   .perform();
+	}
+	
+	/**
+	 * Get a List of all the homepage checklist items
+	 * 
+	 * @return List of items
+	 */
+	public List<WebElement> getHomePageChecklistItems() {
+		return checkListItems;
 	}
 	
 }

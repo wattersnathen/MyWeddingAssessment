@@ -88,6 +88,8 @@ public class FindVendorPageTest extends BaseTestCase {
 		 */
 		vendorPage.moveToCheckListSection();
 		
+		
+		List<WebElement> checkListItems = vendorPage.getHomePageChecklistItems();
 	// ----- HELPER METHODS -----
 	
 	/**
